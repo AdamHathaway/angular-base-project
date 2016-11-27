@@ -1,0 +1,24 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "Base project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "base"
+  ],
+  "author": "Adam Hathaway",
+  "license": "ISC",
+  "engines": {"node": "5.5.0 || 5.x.x || 4.x.x"},
+  "dependencies": {
+    "angular-local-storage": "^0.2.7",
+    "angular-moment": "^1.0.0-beta.6",
+    "angular-spinner": "^0.8.1",
+    "angular-toastr": "^2.1.1",
+    "aphrodite": "^0.5.0",
+    "bootstrap": "^3.3.7",
+    "moment": "^2.14.1"
+  }
+}

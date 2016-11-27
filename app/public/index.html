@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="baseApp">
+<head>
+    <title>Base App</title>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.min.css">
+    <!-- build:css assets/site.min.css -->
+    <link href="assets/site.css" rel="stylesheet" />
+    <!-- endbuild -->
+</head>
+<body>
+    <span us-spinner="{radius:20, width:6, length: 11}" spinner-on="$root.showSpinner"></span>
+    <div ng-view></div>
+
+    <!-- CDN Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+
+    <!-- Node Scripts -->
+    <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <!-- <script src="node_modules/spin.js/spin.min.js"></script> --> <!-- This one doesn't work in Azure for some reason -->
+    <script src="libs/spin.min.js"></script>
+    <script src="node_modules/angular-spinner/angular-spinner.min.js"></script>
+
+    <!-- build:js assets/js/optimized.min.js -->
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="httpSimple.js"></script>
+    <script src="components/auth/auth-service.js"></script>
+    <script src="components/auth/current-user-service.js"></script>
+    <script src="components/auth/login.js"></script>
+    <script src="components/auth/register.js"></script>
+    <script src="components/auth/forgot-password.js"></script>
+    <script src="components/auth/reset-password.js"></script>
+    <script src="components/shared/enums-service.js"></script>
+    <script src="components/shared/fake-data-service.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

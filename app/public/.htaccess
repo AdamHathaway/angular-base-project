@@ -1,0 +1,13 @@
+RewriteEngine On  
+  # Rewrite all HTTP to HTTPS permanently
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} !localhost:8888
+  RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Don't rewrite for files or directories
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^ - [L]
+
+  # Rewrite all other urls to index.html
+  RewriteRule ^ /index.html

@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3 auth-form">
+			<h3 class="text-center primary-color">Sign In to your Account</h3>
+			<hr />
+			<form name="model.loginForm" ng-submit="model.login(model.loginForm.$valid)" novalidate>
+
+				<div class="form-group" ng-class="{ 'has-error': model.hasError('email') }">
+					<label for="email">Email</label>
+					<input ng-model="model.credentials.email" name="email" type="email" class="form-control" required>
+				</div>
+				<div ng-messages="model.loginForm.email.$touched && model.loginForm.email.$error" class="error-message">
+					<div class="text-danger" ng-message="required">Please provide a Email</div>
+					<div class="text-danger" ng-message="email">The Email entered is not valid</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error': model.hasError('password') }">
+					<label for="password">Password</label>
+					<input ng-model="model.credentials.password" ng-minlength="8" name="password" type="password" class="form-control" required>
+				</div>
+				<div ng-messages="model.loginForm.password.$touched && model.loginForm.password.$error" class="error-message">
+					<div class="text-danger" ng-message="required">Please provide a Password</div>
+					<div class="text-danger" ng-message="minlength">Password must be at least 8 characters long</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="checkbox">
+							<label><input ng-model="model.credentials.rememberMe" type="checkbox"> Remember Me</label>
+						</div>
+
+					</div>
+					<div class="col-xs-6 text-right">
+						<div class="checkbox">
+						<a href="/forgotpassword?email={{model.credentials.email}}">Forgot Password</a>						
+					</div>
+					</div>
+				</div>
+
+				<button ng-disabled="model.loginForm.$invalid || $root.showSpinner" type="submit" class="btn btn-ona form-control">Sign In</button>
+				<div class="form-row">
+					<a class="link text-center" href="/signup">
+						<span>Don't have an account? <span class="primary-color">Sign Up</span> here.</span>
+					</a>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>

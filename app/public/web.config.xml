@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <system.webServer>
+	<rewrite>
+	  <rules>
+	  	<rule name="Redirect to HTTPS">
+	        <match url="(.*)" />
+	        <conditions>
+	          <add input="{HTTPS}" pattern="off" ignoreCase="true" />
+	          <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+	          <add input="{HTTP_HOST}" pattern="^(localhost:8888)$" negate="true" />
+	        </conditions>
+	        <action type="Redirect" url="https://{SERVER_NAME}/{R:1}" redirectType="Permanent" />
+	    </rule>
+		<rule name="AngularJS Routes" stopProcessing="true">
+		  <match url=".*" />
+		  <conditions logicalGrouping="MatchAll">
+			<add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+			<add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+			<add input="{REQUEST_URI}" pattern="^/(api)" negate="true" />
+		  </conditions>
+		  <action type="Rewrite" url="/index.html" />
+		</rule>
+	  </rules>
+	</rewrite>
+	<staticContent>
+        <remove fileExtension=".svg" />
+        <remove fileExtension=".eot" />
+        <remove fileExtension=".woff" />
+        <remove fileExtension=".woff2" />
+        <mimeMap fileExtension=".svg" mimeType="image/svg+xml"  />
+        <mimeMap fileExtension=".eot" mimeType="application/vnd.ms-fontobject" />
+        <mimeMap fileExtension=".woff" mimeType="application/x-woff" />
+        <mimeMap fileExtension=".woff2" mimeType="font/woff2" />
+    </staticContent>
+  </system.webServer>
+</configuration>

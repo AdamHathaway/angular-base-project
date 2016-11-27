@@ -1,0 +1,71 @@
+/************ Variables ************/
+
+$theme-text-color: rgb(0, 0, 0);
+$theme-font: 'Roboto', sans-serif;
+$theme-font-size: 12px;
+$placeholder-color: rgb(210, 210, 210);
+
+/* Mobile Sizes: xs 768 sm 992 md 1200 lg */
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+/************ Mixins ************/
+
+@mixin roboto-regular($size) {
+	font-family: $theme-font;
+	font-weight: 400;
+	font-size: $size;
+}
+
+/************ CSS ************/
+
+/* For ngCloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* For UI Bootstrap */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+html, body {
+	color:$theme-text-color !important;
+	font-size: $theme-font-size !important;
+	font-family: $theme-font !important;
+	line-height: 16px !important;
+	background-color:rgb(255, 253, 254) !important;
+}
+
+/* placeholder color */
+::-webkit-input-placeholder { /* Chrome */
+  color:$placeholder-color;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color:$placeholder-color;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color:$placeholder-color;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color:$placeholder-color;
+  opacity: 1;
+}
+
+span[us-spinner] {
+	position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+}
+
+.error { 
+	color: red; 
+}
+
+.glyphicon {
+	color: gray;
+}
